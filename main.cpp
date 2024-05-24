@@ -1,100 +1,50 @@
 #include <iostream>
+#include <vector> 
 
-using namespace std; 
+using namespace std;
 
+#include "Player.h" 
+#include "Monster.h"
 
-
-class World
-{
-	void Finish();
-
-	Floor Floors[100]; 
-	Wall Walls[100];
-	Player Myplayer; 
-	Monster Monsters[100];
-	Goal Goal[100];
-};
-
-struct collision
-{
-
-};
-
-class Wall
-{
-	int X;
-	int Y;
-	int Shape;
-	void Block();
-};
-
-class Floor
-{
-	int X;
-	int Y;
-	int Shape;
-	void Block();
-};
-
-class Player
-{
-	int X;
-	int Y;
-	int Shape;
-	void Move();
-	void Arrive();
-};
-
-class Monster
-{
-	int X;
-	int Y;
-	int Shape;
-	void Move();
-
-};
-
-class Goal
-{
-	int X;
-	int Y;
-	int Shape;
-};
-
-void Move();
-void Arrive();
-void Finish();
-void Block();
-
-
-class Engine
-{
-	void Run()
-	{
-		while (true)
-		{
-			void Input();
-			void Tick();
-			void Render();
-		}
-	}
-
-	void Input(); 
-	void Tick();
-	void Render();
-};
 
 int main()
 {
-	//Player, Monster, Goal, Wall, Floor
+
+	While(true)
+	{
+		string Key;
+		cin >> key;
+		if (Key == "1")
+		{
+			MyMonster.push_back(new Monster());
+		}
+
+		MyPlayer
+	}
+
+	MyMonster.push_back(new Monster());
+	MyMonster.push_back(new Monster());
+	MyMonster.push_back(new Monster());
+	MyMonster.push_back(new Monster());
+	MyMonster.push_back(new Monster());
+
+	MyPlayer->Move(); //ÀÌµ¿
+
+	for (int i = 0; i < MyMonster.size(); ++i)
+	{
+		MyMonster[i]->Move();
+		MyMonster[i]->Attack();
+	}
 
 
-	Engine* MyEngine = new Engine();
-	
-	MyEngine->Run();
-	
-	delete MyEngine;
+	delete MyPlayer; //Á×À½
+	for (int i = 0; i < MyMonster.size(); ++i)
+	{
+		delete MyMonster[i];
+	}
 
+	MyMonster.clear();
 
-
+	return 0;
 }
+
