@@ -3,46 +3,98 @@
 using namespace std; 
 
 
-void InsertAfter(Int* Array, Int Size, Int NewPosition, Int Value )
+
+class World
+{
+	void Finish();
+
+	Floor Floors[100]; 
+	Wall Walls[100];
+	Player Myplayer; 
+	Monster Monsters[100];
+	Goal Goal[100];
+};
+
+struct collision
+{
+
+};
+
+class Wall
+{
+	int X;
+	int Y;
+	int Shape;
+	void Block();
+};
+
+class Floor
+{
+	int X;
+	int Y;
+	int Shape;
+	void Block();
+};
+
+class Player
+{
+	int X;
+	int Y;
+	int Shape;
+	void Move();
+	void Arrive();
+};
+
+class Monster
+{
+	int X;
+	int Y;
+	int Shape;
+	void Move();
+
+};
+
+class Goal
+{
+	int X;
+	int Y;
+	int Shape;
+};
+
+void Move();
+void Arrive();
+void Finish();
+void Block();
+
+
+class Engine
+{
+	void Run()
+	{
+		while (true)
+		{
+			void Input();
+			void Tick();
+			void Render();
+		}
+	}
+
+	void Input(); 
+	void Tick();
+	void Render();
+};
+
 int main()
 {
-	int Size = 10; 
-	int* PA = new int[10]; 
+	//Player, Monster, Goal, Wall, Floor
+
+
+	Engine* MyEngine = new Engine();
 	
-	for (int i = 0; i <= 10; i++)
-	{
-		PA[i] = i;
-	}
-
-	//그대로 옮기는 것 
-	int NewPA = new int[Size +1]; 
-	for (int i = 0; i < NewPosition; i++)
-	{
-		NewPA[i] = PA[i]
-	}
-
-	//추가 로직 
-	for (int  i = 0; i < NewPosition; i++)
-	{
-		cout << NewPA[i] << " , ";
-	}
-
-
-	NewPA[NewPosition] = NewValue;
-	for (int i = NewPosition + 1, i < Size + 1; ++i)
-	{
-		NewPA[i] = PA[i - 1]; 
-	}
-
-	for (int i = 0; i < Size + 1; ++1)
-	{
-		cout << PA[i] << " , ";
-	}
-
-	delete[] PA;
-	delete[] NewPA;
+	MyEngine->Run();
+	
+	delete MyEngine;
 
 
 
-	return 0;
 }
